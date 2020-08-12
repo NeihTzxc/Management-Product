@@ -1,0 +1,67 @@
+﻿@model IEnumerable<qlbh.Models.SanPham>
+@using qlbh.Models;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.TenSP)*@
+            Tên sản phẩm
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Donvitinh)*@
+            Đơn vị tính
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Dongia)*@
+            Đơn giá
+        </th>
+
+        <th>
+            @*@Html.DisplayNameFor(model => model.LoaiSP.TenLoaiSP)*@
+            Loại sản phẩm
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.HinhSP)*@
+            Hình sản phẩm
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TenSP)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Donvitinh)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Dongia)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.LoaiSP.TenLoaiSP)
+    </td>
+    <td>
+        @*@Html.DisplayFor(modelItem => item.HinhSP)*@
+        @Html.Image("/Images/" + item.HinhSP, "alt", "100")
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.MaSP }) |
+        @Html.ActionLink("Details", "Details", new { id = item.MaSP }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.MaSP })
+    </td>
+</tr>
+    }
+
+</table>

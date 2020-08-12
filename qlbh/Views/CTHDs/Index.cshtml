@@ -1,0 +1,51 @@
+﻿@model IEnumerable<qlbh.Models.CTHD>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Soluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Giamgia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoaDon.MaHD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SanPham.TenSP)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soluong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Giamgia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoaDon.MaHD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SanPham.TenSP)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaCTHD }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaCTHD }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaCTHD })
+        </td>
+    </tr>
+}
+
+</table>
